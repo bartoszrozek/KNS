@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Tue Game</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Start</h1>
+    
+    <p style="color: aliceblue";> 
+        Gracz i komputer budują słowo składające się z liter z ustalonego alfabetu. Gracz wybiera miejsce w słowie, a komputer wstawia tam litery. 
+    </p>
+
+    <div class="form">
+        <form action="/" method="POST">
+            <table id="gameStart">
+                <tr>
+                    <td>
+                        <label for="ncharAlphabet" style="color: aliceblue;">Wielkość alfabetu</label>
+                    </td>
+                    <td>
+                        <input class="inputButtons" type="number" min="2" max="100" name="ncharAlphabet" style="width: 140px" id="ncharAlphabet">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="endPoint" style="color: aliceblue;">Długość gry</label>
+                    </td>
+                    <td>
+                        <input class="inputButtons" type="number" min="1" max="100" name="endPoint" style="width: 140px" id="endPoint">
+                    </td>
+                </tr>
+            </table>
+            <div style="margin-top: 15px">
+                <input class="inputButtons" type="submit" value="Start!">
+            </div>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

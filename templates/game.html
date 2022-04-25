@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Tue Game</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Tue Game Online</h1>
+
+    {% if indexes %}
+        <table id = "letters">
+            <tr>
+                {% for letter in letters %}
+                    {% if loop.index in indexes%}
+                        <td class = "letter{{letter}} letter" >{{ letter }}</td>
+                    {% elif loop.index in indexes2%}
+                        <td class = "letter{{letter}} letter" >{{ letter }}</td>
+                    {% else %}
+                        <td class = "letter">{{ letter }}</td>
+                    {% endif%}
+                {% endfor %}
+            </tr>
+        </table>
+    {% elif end %}
+        <table id = "letters">
+            <tr>
+                {% for letter in letters %}
+                    <td class = "letter criticalLength" >{{ letter }}</td>
+                {% endfor %}
+            </tr>
+        </table>    
+    {% else %}
+        <table id = "letters">
+            <tr>
+                <td class = addElement> 
+                    <a href="/add/{{0}}">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td>
+                {% for letter in letters %}
+                <td class = "letter letter{{letter}}">{{ letter }}</td>
+                <td class = addElement> 
+                    <a href="/add/{{loop.index}}">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td>
+                {% endfor %}
+            </tr>
+        </table>
+    {% endif %}
+
+    <div style="position: absolute; bottom: 20px; left: 49%;">
+        <a href="/reset" class="btn btn-light inputButtons">Nowa gra</a>
+    </div>
+    
+
+</div>
+{% endblock %}
