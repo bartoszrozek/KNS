@@ -1,0 +1,2 @@
+# KNS
+Kombinatoryka na słowach
